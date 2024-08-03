@@ -1,7 +1,7 @@
 import urllib.request
 from bs4 import BeautifulSoup
 import re
-from gpt_data import get
+from pycode.gpt_data import get
 from transformers import pipeline
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
