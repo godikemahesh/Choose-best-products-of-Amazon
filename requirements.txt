@@ -5,3 +5,5 @@ requests
 OpenAI
 spacy
 pandas
+find_product
+gpt_data
