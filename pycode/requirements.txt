@@ -1,0 +1,9 @@
+streamlit
+beautifulsoup4
+pandas
+requests
+OpenAI
+spacy
+pandas
+transformers
+sklearn
