@@ -6,4 +6,4 @@ OpenAI
 spacy
 pandas
 transformers
-sklearn
+scikit-learn
