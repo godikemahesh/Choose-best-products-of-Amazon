@@ -1,10 +1,11 @@
 streamlit
+spacy>=3.5.0
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0.tar.gz
+numpy>=1.21.0
+thinc>=8.1.0
 beautifulsoup4
 pandas
 requests
 OpenAI
-spacy
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0.tar.gz
-pandas
 transformers
 scikit-learn
