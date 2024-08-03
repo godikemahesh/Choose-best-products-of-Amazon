@@ -5,5 +5,3 @@ requests
 OpenAI
 spacy
 pandas
-find_product (not a python library)
-gpt_data (not a python library)
