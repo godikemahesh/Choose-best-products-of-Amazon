@@ -3,9 +3,7 @@ import find_product
 import re
 import pandas as pd
 from gpt_data import lemitization
-# Initialize session state for text inputs
-path=r"C:\Users\mahes\Downloads\suraj logo.png"
-st.logo(path)
+
 st.markdown(
     """
     <style>
