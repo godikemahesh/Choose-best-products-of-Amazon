@@ -2,5 +2,5 @@ streamlit
 beautifulsoup4
 pandas
 requests
-
+OpenAI
 
