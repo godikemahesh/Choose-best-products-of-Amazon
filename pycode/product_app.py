@@ -1,8 +1,8 @@
 import streamlit as st
-import find_product
+import .find_product
 import re
 import pandas as pd
-from gpt_data import lemitization
+from .gpt_data import lemitization
 import plotly.express as px
 
 #path=r"C:\Users\mahes\Downloads\suraj logo.png"
