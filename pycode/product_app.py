@@ -3,7 +3,7 @@ from find_product import get_data
 from find_product import d_prompt
 import re
 import pandas as pd
-from gpt_data import lemitization
+#from gpt_data import lemitization
 import plotly.express as px
 
 #path=r"C:\Users\mahes\Downloads\suraj logo.png"
@@ -85,8 +85,8 @@ def generate():
                 st.session_state.content.append(dataf)
                 keys.clear()
                 values.clear()
-    adata=lemitization(lst)
-    my_text,all_texts,sim=d_prompt(adata)
+    #adata=lemitization(lst)
+    my_text,all_texts,sim=d_prompt(lst)
     st.session_state.content.append(f"retrived best specifications:\n\n{my_text}")
     df = pd.DataFrame({
         'Percentage': sim,
