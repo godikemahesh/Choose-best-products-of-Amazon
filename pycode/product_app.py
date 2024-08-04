@@ -3,7 +3,7 @@ from find_product import get_data
 from find_product import d_prompt
 import re
 import pandas as pd
-from .gpt_data import lemitization
+from gpt_data import lemitization
 import plotly.express as px
 
 #path=r"C:\Users\mahes\Downloads\suraj logo.png"
