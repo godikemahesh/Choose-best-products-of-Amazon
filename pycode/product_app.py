@@ -1,5 +1,5 @@
 import streamlit as st
-import .find_product
+from .find_product import get_data,d_prompt
 import re
 import pandas as pd
 from .gpt_data import lemitization
@@ -56,7 +56,7 @@ def generate():
     urls=[]
     for i ,url in enumerate(st.session_state.urls):
         if st.session_state.urls[i]!="":
-            details,tit,rank=find_product.get_data(st.session_state.urls[i])
+            details,tit,rank=get_data(st.session_state.urls[i])
             urls.append(st.session_state.urls[i])
             pattern2 = r"(\d.\d) out of 5"
             rank=re.findall(pattern2,rank)
@@ -85,7 +85,7 @@ def generate():
                 keys.clear()
                 values.clear()
     adata=lemitization(lst)
-    my_text,all_texts,sim=find_product.d_prompt(adata)
+    my_text,all_texts,sim=d_prompt(adata)
     st.session_state.content.append(f"retrived best specifications:\n\n{my_text}")
     df = pd.DataFrame({
         'Percentage': sim,
