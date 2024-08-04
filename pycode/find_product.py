@@ -6,12 +6,19 @@ from transformers import pipeline
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
+import httpx
+import asyncio
+
+
+async def fetch_data(url):
+    async with httpx.AsyncClient() as client:
+        response = await client.get(url)
+        return response.text
 
 
 lst=[]
 def get_data(url):
-    req = urllib.request.Request(url)
-    data = urllib.request.urlopen(req)
+    data=asyncio.run(fetch_data(url))
     soup = BeautifulSoup(data, 'html.parser')
     sp=open("specify.txt", "a", encoding="utf-8")
     title = soup.find(id='productTitle')
