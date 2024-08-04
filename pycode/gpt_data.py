@@ -1,14 +1,14 @@
 from openai import OpenAI
 import sys
-import spacy
-nlp=spacy.load("en_core_web_sm")
-def lemitization(lst):
-    lemed=[]
-    for i in range(len(lst)):
-        doc=nlp(lst[i])
-        processed_text = " ".join([token.lemma_ for token in doc if not token.is_stop])
-        lemed.append(processed_text)
-    return lemed
+#import spacy
+#nlp=spacy.load("en_core_web_sm")
+#def lemitization(lst):
+#    lemed=[]
+#    for i in range(len(lst)):
+#        doc=nlp(lst[i])
+#        processed_text = " ".join([token.lemma_ for token in doc if not token.is_stop])
+#        lemed.append(processed_text)
+#    return lemed
 
 def get(state):
     client = OpenAI(
