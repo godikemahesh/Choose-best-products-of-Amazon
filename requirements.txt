@@ -10,4 +10,3 @@ thinc>=8.1.0
 transformers
 plotly
 scikit-learn
-ssl
