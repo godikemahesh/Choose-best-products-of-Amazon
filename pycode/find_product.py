@@ -8,18 +8,22 @@ import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 import httpx
 import asyncio
+import ssl
 
 
-async def fetch_data(url):
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url)
-        return response.text
+#async def fetch_data(url):
+#    async with httpx.AsyncClient() as client:
+ #       response = await client.get(url)
+  #      return response.text
 
 
 lst=[]
 def get_data(url):
-    data=asyncio.run(fetch_data(url))
-    soup = BeautifulSoup(data, 'html.parser')
+    #data=asyncio.run(fetch_data(url))
+    ctx = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
+    ctx.options |= 0x4  # OP_LEGACY_SERVER_CONNECT
+    response = urllib.request.urlopen(url, context=ctx)
+    soup = BeautifulSoup(response, 'html.parser')
     sp=open("specify.txt", "a", encoding="utf-8")
     title = soup.find(id='productTitle')
     if title:
