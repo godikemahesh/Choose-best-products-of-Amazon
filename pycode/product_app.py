@@ -33,8 +33,7 @@ try:
     status = check_scrapingbee_status()
     
     if status['status'] == 'connected':
-        st.sidebar.success("✅ ScrapingBee API Connected")
-        st.sidebar.info(f"API Calls Used: {status['used_calls']}/{status['max_calls']}")
+        st.sidebar.success("✅ APP Connected")
     else:
         st.sidebar.error(f"❌ API Error: {status.get('message', 'Unknown error')}")
 except:
