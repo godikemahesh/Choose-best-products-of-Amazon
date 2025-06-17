@@ -98,7 +98,19 @@ def generate():
                 values.clear()
     #adata=lemitization(lst)
     my_text,all_texts,sim=d_prompt(lst)
-    st.session_state.content.append(f"retrived best specifications:\n\n{my_text}")
+    st.session_state.content.append("### ✅ Retrieved Best Specifications:")
+    if isinstance(my_text, dict):
+        best_df = pd.DataFrame(list(my_text.items()), columns=["Feature", "Value"])
+    elif isinstance(my_text, str):
+        try:
+            import json
+            my_text = json.loads(my_text)
+            best_df = pd.DataFrame(list(my_text.items()), columns=["Feature", "Value"])
+        except:
+            best_df = pd.DataFrame([["Could not parse", my_text]], columns=["Feature", "Value"])
+
+    st.session_state.content.append(best_df)
+
     df = pd.DataFrame({
         'Percentage': sim,
         'Text': title,
