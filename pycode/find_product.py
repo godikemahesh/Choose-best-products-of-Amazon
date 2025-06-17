@@ -27,16 +27,34 @@ def scrape_with_scrapingbee(url):
                 'block_ads': 'true',  # Block ads for faster loading
                 'block_resources': 'true'  # Block images/CSS for faster loading
             },
-            timeout=60  # ScrapingBee can take longer
+            timeout=70  # ScrapingBee can take longer
         )
         
         if response.status_code == 200:
             return response.text
         else:
-            st.error(f"ScrapingBee API error: {response.status_code}")
-            if response.status_code == 422:
-                st.error("API key might be invalid or you've exceeded your quota")
-            return None
+            api_key1 = st.secrets["scrapingbee"]["api_key1"]
+        
+            response1 = requests.get(
+            url='https://app.scrapingbee.com/api/v1/',
+            params={
+                'api_key': api_key1,
+                'url': url,
+                'render_js': 'false',  # Amazon doesn't need JS rendering for basic info
+                'premium_proxy': 'true',  # Use premium proxies for better success rate
+                'country_code': 'us',  # Use US proxies for Amazon
+                'block_ads': 'true',  # Block ads for faster loading
+                'block_resources': 'true'  # Block images/CSS for faster loading
+            },
+            timeout=60  # ScrapingBee can take longer
+        )
+            if response1.status_code == 200:
+                return response1.text
+            else:
+                text="Unable to fetch the data from the API"
+                return text
+                
+            
             
     except Exception as e:
         st.error(f"ScrapingBee error: {str(e)}")
