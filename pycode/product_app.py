@@ -24,9 +24,21 @@ st.markdown(
 
 st.markdown("<h2 class='centered-heading'>SURAJ® OptiChoice</h2>", unsafe_allow_html=True)
 st.title("Choose Your Product")
+
 #st.write("<h2 style='text-align: center;color: yellow;font-size:65px;'>SURAJ® OptiChoice</h2>", unsafe_allow_html=True)
 st.write("Paste the Urls and get to choose best products in the amazon..\n")
-
+# Add this to your main app after the title
+try:
+    from find_product import check_scrapingbee_status
+    status = check_scrapingbee_status()
+    
+    if status['status'] == 'connected':
+        st.sidebar.success("✅ ScrapingBee API Connected")
+        st.sidebar.info(f"API Calls Used: {status['used_calls']}/{status['max_calls']}")
+    else:
+        st.sidebar.error(f"❌ API Error: {status.get('message', 'Unknown error')}")
+except:
+    st.sidebar.warning("⚠️ ScrapingBee API not configured")
 
 if "urls" not in st.session_state:
     st.session_state.urls = ["", ""]  # Start with one empty URL field
