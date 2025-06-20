@@ -13,7 +13,7 @@ import sys
 from groq import Groq
 
 
-def get(state):
+def get(prompt):
     client = Groq(api_key="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")
     response = client.chat.completions.create(
     model="llama3-8b-8192",
