@@ -180,7 +180,7 @@ def d_prompt(data):
 - Highest performance metrics (e.g., CPU speed, RAM)
 - Largest capacity (e.g., storage space, battery life)
 - Most features or advanced options (e.g., camera quality, display resolution)
-Please provide a single dictionary that consists the 10 best specifications from all the products, prioritizing the most important features as described above.give overal best specifications.just gimme what i ask , dont explain and avoid giving programming scrips."""
+Please provide a single dictionary that consists the 10 best specifications from all the products, prioritizing the most important features as described above.give overal best specifications.just gimme what i ask , dont explain anything and avoid giving programming scrips.in the output give me only dictionary."""
     
     try:
         my_text = get(prompt)
