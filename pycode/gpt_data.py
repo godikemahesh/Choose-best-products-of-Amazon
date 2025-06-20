@@ -10,16 +10,16 @@ import sys
 #        lemed.append(processed_text)
 #    return lemed
 
-def get(state):
-    client = OpenAI(
-        api_key="211fa21c08be45e86847eff9d61cb4e6bc7374995f3b7ac894d34f2395a415dd",
-        base_url='https://llm.mdb.ai/')
-    completion = client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {'role': 'user', 'content': state}
-        ],
-        stream=False
-    )
+from groq import Groq
 
-    return completion.choices[0].message.content
+
+def get(state):
+    client = Groq(api_key="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")
+    response = client.chat.completions.create(
+    model="llama3-8b-8192",
+    messages=[
+        {"role": "user", "content": prompt}
+    ],
+    stream=False
+    )
+    return response.choices[0].message.content.strip()
