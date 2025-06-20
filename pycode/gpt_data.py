@@ -1,5 +1,6 @@
 from openai import OpenAI
 import sys
+import streamlit as st
 #import spacy
 #nlp=spacy.load("en_core_web_sm")
 #def lemitization(lst):
