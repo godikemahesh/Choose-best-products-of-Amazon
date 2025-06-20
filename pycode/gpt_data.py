@@ -14,7 +14,7 @@ from groq import Groq
 
 
 def get(prompt):
-    client = Groq(api_key="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")
+    client = Groq(api_key=st.secrets["scrapingbee"]["groq_api"])
     response = client.chat.completions.create(
     model="llama3-8b-8192",
     messages=[
