@@ -72,7 +72,7 @@ try:
     from find_product import check_scrapingbee_status
     status = check_scrapingbee_status()
     if status['status'] == 'connected':
-        st.sidebar.success("✅ ScrapingBee Connected")
+        st.sidebar.success("✅ APP Connected")
     else:
         st.sidebar.error(f"❌ API Error: {status.get('message', 'Unknown error')}")
 except:
